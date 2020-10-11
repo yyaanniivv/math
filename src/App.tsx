@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>כאן עושים חשבון</p>
+        <p>חשבון פשוט</p>
 
         {printProblem({ a, b, action })}
 
