@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { setConstantValue } from "typescript";
 import { IConfig } from "./common";
 import "./Settings.css";
 
