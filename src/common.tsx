@@ -13,6 +13,8 @@ export interface IConfig {
   bOffset: number;
 }
 
+export type NumpadChar = "<" | number;
+
 // TODO - move this to a component
 export const printProblem = ({ a, b, action }: IProblem) => {
   return <div key={`${a}${action}${b}`}>{` ${a} ${action} ${b} = ? `}</div>;

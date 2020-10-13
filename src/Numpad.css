@@ -6,11 +6,11 @@
   grid-gap: 3px;
 }
 
-.digit {
+.char {
   background-color: #9999ff;
   height: 2.5rem;
 }
 
-.digit:last-child {
+.char:nth-child(10) {
   grid-column: 2 / 3;
 }

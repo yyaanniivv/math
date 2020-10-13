@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Numpad from "./Numpad";
 import Settings from "./Settings";
 import HistoricProblems from "./HistoricProblems";
-import { IConfig, IProblem, printProblem } from "./common";
+import { IConfig, IProblem, NumpadChar, printProblem } from "./common";
 
 import "./App.css";
 
@@ -43,9 +43,13 @@ function App() {
   };
 
   // For the visual numpad
-  const appendDigit = (digit: number) => {
+  const numpadClick = (char: NumpadChar) => {
     const resultField = document.getElementById("result") as HTMLInputElement;
-    resultField.value = resultField.value + digit;
+    if (char === "<") {
+      resultField.value = resultField.value.substr(0, resultField.value.length - 1);
+    } else {
+      resultField.value = resultField.value + char;
+    }
   };
 
   const saveProblem = (a: number, b: number, action: string) => {
@@ -86,8 +90,8 @@ function App() {
           <button onClick={() => checkProblem()}>בדוק</button>
         </div>
         <Numpad
-          onClick={(digit: number) => {
-            appendDigit(digit);
+          onClick={(char: NumpadChar) => {
+            numpadClick(char);
           }}
         />
         <HistoricProblems problems={previousProblems} />
