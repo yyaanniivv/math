@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { leProblem, printProblem } from "./common";
+import { IProblem, printProblem } from "./common";
 import "./HistoricProblems.css";
 
 interface Props {
-  problems: Array<leProblem>;
+  problems: Array<IProblem>;
 }
 
 function HistoricProblems(props: Props) {

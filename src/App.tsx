@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import Numpad from "./Numpad";
+import Settings from "./Settings";
 import HistoricProblems from "./HistoricProblems";
-import { leProblem, printProblem } from "./common";
+import { IConfig, IProblem, printProblem } from "./common";
 
 import "./App.css";
 
 function App() {
-  let [a, setA] = useState(0);
-  let [b, setB] = useState(0);
-  let [action, setAction] = useState("x");
-  let [answerHint, setAnswerHint] = useState("");
-  let [config, setConfig] = useState({ aRange: 50, aOffset: 1, bRange: 5, bOffset: 2 });
+  let [a, setA] = useState<number>(0);
+  let [b, setB] = useState<number>(0);
+  let [action, setAction] = useState<string>("x");
+  let [answerHint, setAnswerHint] = useState<string>("");
+  let [config, setConfig] = useState<IConfig>({
+    aRange: 50,
+    aOffset: 1,
+    bRange: 5,
+    bOffset: 2,
+  });
 
-  let [previousProblems, setPreviousProblems] = useState<Array<leProblem>>([]);
+  let [previousProblems, setPreviousProblems] = useState<Array<IProblem>>([]);
 
   // const action = {
   //   sum: {
@@ -42,9 +48,8 @@ function App() {
     resultField.value = resultField.value + digit;
   };
 
-  // Add action enum
   const saveProblem = (a: number, b: number, action: string) => {
-    const previousProblem: leProblem = { a, b, action };
+    const previousProblem: IProblem = { a, b, action };
     setPreviousProblems([previousProblem, ...previousProblems]);
   };
 
@@ -87,6 +92,7 @@ function App() {
         />
         <HistoricProblems problems={previousProblems} />
         <img src={logo} className="App-logo" alt="logo" />
+        <Settings config={config} setConfig={setConfig} />
       </header>
     </div>
   );
