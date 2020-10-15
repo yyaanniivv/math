@@ -11,6 +11,7 @@
   height: 2.5rem;
 }
 
+/* Magic numer 10 - position of the Zero Character. */
 .char:nth-child(10) {
   grid-column: 2 / 3;
 }
