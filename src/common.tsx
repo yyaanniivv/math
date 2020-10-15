@@ -15,7 +15,6 @@ export interface IConfig {
 
 export type NumpadChar = "<" | number;
 
-// TODO - move this to a component
-export const printProblem = ({ a, b, action }: IProblem) => {
+export function Problem({ a, b, action }: IProblem) {
   return <div key={`${a}${action}${b}`}>{` ${a} ${action} ${b} = ? `}</div>;
-};
+}

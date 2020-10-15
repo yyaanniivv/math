@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IProblem, printProblem } from "./common";
+import { IProblem, Problem } from "./common";
 import "./HistoricProblems.css";
 
 interface Props {
@@ -14,7 +14,11 @@ function HistoricProblems(props: Props) {
       <p>{problems.length} תרגילים קודמים</p>
 
       {toggle && (
-        <div className="historicProblems">{problems.map((problem) => printProblem(problem))}</div>
+        <div className="historicProblems">
+          {problems.map((problem) => (
+            <Problem {...problem} />
+          ))}
+        </div>
       )}
     </div>
   );

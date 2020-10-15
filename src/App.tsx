@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Numpad from "./Numpad";
 import Settings from "./Settings";
 import HistoricProblems from "./HistoricProblems";
-import { IConfig, IProblem, NumpadChar, printProblem } from "./common";
+import { IConfig, IProblem, NumpadChar, Problem } from "./common";
 
 import "./App.css";
 
@@ -82,7 +82,7 @@ function App() {
       <header className="App-header">
         <p>חשבון פשוט</p>
 
-        {printProblem({ a, b, action })}
+        <Problem a={a} b={b} action={action} />
 
         {answerHint}
         <div className="MathProblem">
