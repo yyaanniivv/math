@@ -16,14 +16,7 @@ function problemKey({ a, b, action }: IProblem) {
 
 function HistoricProblems(props: Props) {
   let [toggle, setToggle] = useState(false);
-  // const problems = props.problems;
-  const problems = [
-    { a: 1, b: 2, action: "+" },
-    { a: 1, b: 2, action: "+" },
-    { a: 1, b: 2, action: "+" },
-    { a: 1, b: 2, action: "+" },
-    { a: 1, b: 2, action: "+" },
-  ];
+  const problems = props.problems;
 
   return (
     <div>
