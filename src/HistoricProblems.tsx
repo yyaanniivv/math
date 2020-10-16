@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import clsx from "clsx";
 import { IProblem } from "./common";
 import { Problem } from "./Problem";
+import { Collapse, IconButton } from "@material-ui/core";
+import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import "./HistoricProblems.css";
 
 interface Props {
   problems: Array<IProblem>;
@@ -12,14 +16,33 @@ function problemKey({ a, b, action }: IProblem) {
 
 function HistoricProblems(props: Props) {
   let [toggle, setToggle] = useState(false);
-  const problems = props.problems;
+  // const problems = props.problems;
+  const problems = [
+    { a: 1, b: 2, action: "+" },
+    { a: 1, b: 2, action: "+" },
+    { a: 1, b: 2, action: "+" },
+    { a: 1, b: 2, action: "+" },
+    { a: 1, b: 2, action: "+" },
+  ];
 
   return (
-    <div onClick={() => setToggle(!toggle)}>
-      <p>{problems.length} תרגילים קודמים</p>
-
-      {toggle &&
-        problems.map((problem) => <Problem key={problemKey(problem)} {...problem} size="small" />)}
+    <div>
+      <div className="historic-title">
+        <p>{problems.length} :תרגילים קודמים</p>
+        <IconButton
+          onClick={() => setToggle(!toggle)}
+          className={clsx("expand", {
+            expandOpen: toggle,
+          })}
+        >
+          <ExpandMoreIcon color="primary" />
+        </IconButton>
+      </div>
+      <Collapse in={toggle}>
+        {problems.map((problem) => (
+          <Problem key={problemKey(problem)} {...problem} size="small" />
+        ))}
+      </Collapse>
     </div>
   );
 }
