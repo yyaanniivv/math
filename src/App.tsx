@@ -3,9 +3,10 @@ import logo from "./logo.svg";
 import Numpad from "./Numpad";
 import Settings from "./Settings";
 import HistoricProblems from "./HistoricProblems";
-import { IConfig, IProblem, NumpadChar, Problem } from "./common";
+import { IConfig, IProblem, NumpadChar } from "./common";
 
 import "./App.css";
+import { Problem } from "./Problem";
 
 function App() {
   let [a, setA] = useState<number>(0);

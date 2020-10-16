@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { IProblem, Problem } from "./common";
+import { IProblem } from "./common";
 import "./HistoricProblems.css";
+import { Problem } from "./Problem";
 
 interface Props {
   problems: Array<IProblem>;
@@ -16,7 +17,7 @@ function HistoricProblems(props: Props) {
       {toggle && (
         <div className="historicProblems">
           {problems.map((problem) => (
-            <Problem {...problem} />
+            <Problem {...problem} size="small" />
           ))}
         </div>
       )}

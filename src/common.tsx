@@ -14,7 +14,3 @@ export interface IConfig {
 }
 
 export type NumpadChar = "<" | number;
-
-export function Problem({ a, b, action }: IProblem) {
-  return <div key={`${a}${action}${b}`}>{` ${a} ${action} ${b} = ? `}</div>;
-}
