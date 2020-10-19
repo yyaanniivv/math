@@ -9,6 +9,7 @@
 .char {
   background-color: #9999ff;
   height: 2.5rem;
+  border-radius: 15px;
 }
 
 /* Magic numer 10 - position of the Zero Character. */
