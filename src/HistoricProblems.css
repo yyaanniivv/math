@@ -1,0 +1,15 @@
+.historic-title {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* Code smell. MuiIcon-root overrides my transition :( */
+/* Decided to be more specific that it, in order to override that behavior  */
+.historic-title > .expand {
+  transform: rotate(0deg);
+  transition: transform 350ms ease 0ms;
+}
+
+.historic-title > .expandOpen {
+  transform: rotate(180deg);
+}
