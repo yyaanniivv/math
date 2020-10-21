@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
+import { Collapse, IconButton } from "@material-ui/core";
 import Slider from "@material-ui/core/Slider";
-import { IConfig, ISettingNumberChange } from "./common";
+import { IConfig } from "./common";
 
 import "./Settings.css";
 
