@@ -15,13 +15,9 @@ function Settings({ config, setConfig }: Props) {
   const onNumberChange = (name: string) => (_: any, values: Array<number> | number) => {
     const offset = (values as Array<number>)[0];
     let range = (values as Array<number>)[1];
-
     range = range - offset + 1;
-    onConfigChange(name, { offset, range });
-  };
 
-  const onConfigChange = (id: string, { offset, range }: ISettingNumberChange) => {
-    switch (id) {
+    switch (name) {
       case "aValues":
         setConfig({ ...config, aOffset: offset, aRange: range });
         break;
@@ -31,11 +27,6 @@ function Settings({ config, setConfig }: Props) {
       default:
         console.log("error in switch case");
     }
-    // if (id === "action") {
-    //   setConfig({ ...config, [id]: value });
-    // } else {
-    //   setConfig({ ...config, [id]: parseInt(value) });
-    // }
   };
 
   return (
