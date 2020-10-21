@@ -13,4 +13,9 @@ export interface IConfig {
   bOffset: number;
 }
 
+export interface ISettingNumberChange {
+  offset: number;
+  range: number;
+}
+
 export type NumpadChar = "<" | number;
