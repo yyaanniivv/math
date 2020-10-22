@@ -1,8 +1,23 @@
 .settings {
   background-color: #3e324b;
-  border-radius: 5px;
-  padding: 1.5rem;
-  width: 300px;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.settings-title {
+  display: flex;
+  justify-content: center;
+}
+
+/* Code smell. MuiIcon-root overrides my transition :( */
+/* Decided to be more specific that it, in order to override that behavior  */
+.settings-title > .expand {
+  transform: rotate(180deg);
+  transition: transform 350ms ease 0ms;
+}
+
+.settings-title > .expandOpen {
+  transform: rotate(360deg);
 }
 
 .input-group {

@@ -1,9 +1,11 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { Collapse, IconButton } from "@material-ui/core";
+import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import Slider from "@material-ui/core/Slider";
 import { IConfig } from "./common";
 
 import "./Settings.css";
+import clsx from "clsx";
 
 interface Props {
   config: IConfig;
@@ -31,10 +33,9 @@ function Settings({ config, setConfig }: Props) {
   };
 
   return (
-    <div>
-      <div onClick={() => setToggle(!toggle)}>{toggle ? "סגור הגדרות ^" : "פתח הגדרות V"}</div>
-      {toggle && (
-        <div className="settings">
+    <div className="settings">
+      <Collapse in={toggle}>
+        <div>
           <div>
             <label htmlFor="action">Select Action</label>
             <select id="action" disabled>
@@ -68,7 +69,18 @@ function Settings({ config, setConfig }: Props) {
             b = {config["bOffset"]} - {config["bOffset"] + config["bRange"] - 1}
           </div>
         </div>
-      )}
+      </Collapse>
+      <div className="settings-title">
+        <IconButton
+          onClick={() => setToggle(!toggle)}
+          className={clsx("expand", {
+            expandOpen: toggle,
+          })}
+        >
+          <ExpandMoreIcon color="primary" />
+        </IconButton>
+        <p>הגדרות</p>
+      </div>
     </div>
   );
 }
