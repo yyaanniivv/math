@@ -13,4 +13,4 @@ export interface IConfig {
   bOffset: number;
 }
 
-export type NumpadChar = "<" | number;
+export type NumpadChar = "✅" | "⌫" | number;

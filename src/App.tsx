@@ -46,8 +46,10 @@ function App() {
   // For the visual numpad
   const numpadClick = (char: NumpadChar) => {
     const resultField = document.getElementById("result") as HTMLInputElement;
-    if (char === "<") {
+    if (char === "⌫") {
       resultField.value = resultField.value.substr(0, resultField.value.length - 1);
+    } else if (char === "✅") {
+      checkProblem();
     } else {
       resultField.value = resultField.value + char;
     }
@@ -88,7 +90,6 @@ function App() {
         {answerHint}
         <div className="MathProblem">
           <input placeholder="?" type="number" id="result" />
-          <button onClick={() => checkProblem()}>בדוק</button>
         </div>
         <Numpad
           onClick={(char: NumpadChar) => {
