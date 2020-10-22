@@ -1,7 +1,7 @@
 # Simple Math practice problems!
 
-Written in React as an educational project for everyone to code and play.  
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Written in React with [MaterialUI](https://material-ui.com/) as an educational project for everyone to code and play.  
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
 
 ## Available Scripts
 
