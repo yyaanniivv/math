@@ -3,7 +3,7 @@ import React from "react";
 export interface IProblem {
   a: number;
   b: number;
-  action: string;
+  action: Action;
 }
 
 export interface IConfig {
@@ -12,5 +12,5 @@ export interface IConfig {
   bRange: number;
   bOffset: number;
 }
-
+export type Action =  "x" | ":" | "+" | "-";
 export type NumpadChar = "✅" | "⌫" | number;

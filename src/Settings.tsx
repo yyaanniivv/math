@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import { Collapse, IconButton } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 import Slider from "@material-ui/core/Slider";
-import { IConfig } from "./common";
+import { Action, IConfig } from "./common";
 
 import "./Settings.css";
 import clsx from "clsx";
@@ -10,10 +10,19 @@ import clsx from "clsx";
 interface Props {
   config: IConfig;
   setConfig: Dispatch<SetStateAction<IConfig>>;
+  setAction: Dispatch<SetStateAction<Action>>;
 }
 
-function Settings({ config, setConfig }: Props) {
+function Settings({ config, setConfig, setAction }: Props) {
   let [toggle, setToggle] = useState<boolean>(false);
+
+  const onActionChange = (action: any) => {
+    // action is a event something
+    //e.target.value
+    console.log(action);
+    debugger;
+    setAction(action);
+  };
 
   const onNumberChange = (name: string) => (_: any, values: Array<number> | number) => {
     const offset = (values as Array<number>)[0];
@@ -38,7 +47,7 @@ function Settings({ config, setConfig }: Props) {
         <div>
           <div>
             <label htmlFor="action">Select Action</label>
-            <select id="action" disabled>
+            <select id="action" onChange={(e) => onActionChange(e)}>
               <option value="x">כפל</option>
               <option value="+">חיבור</option>
               <option value="-">חיסור</option>

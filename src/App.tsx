@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Numpad from "./Numpad";
 import Settings from "./Settings";
 import HistoricProblems from "./HistoricProblems";
-import { IConfig, IProblem, NumpadChar } from "./common";
+import { Action, IConfig, IProblem, NumpadChar } from "./common";
 
 import "./App.css";
 import { Problem } from "./Problem";
@@ -11,7 +11,7 @@ import { Problem } from "./Problem";
 function App() {
   let [a, setA] = useState<number>(0);
   let [b, setB] = useState<number>(0);
-  let [action, setAction] = useState<string>("x");
+  let [action, setAction] = useState<Action>("x");
   let [answerHint, setAnswerHint] = useState<string>("");
   let [config, setConfig] = useState<IConfig>({
     aRange: 50,
@@ -55,7 +55,7 @@ function App() {
     }
   };
 
-  const saveProblem = (a: number, b: number, action: string) => {
+  const saveProblem = (a: number, b: number, action: Action) => {
     const previousProblem: IProblem = { a, b, action };
     setPreviousProblems([previousProblem, ...previousProblems]);
   };
@@ -98,7 +98,7 @@ function App() {
         />
         <HistoricProblems problems={previousProblems} />
         <img src={logo} className="App-logo" alt="logo" />
-        <Settings config={config} setConfig={setConfig} />
+        <Settings config={config} setConfig={setConfig} setAction={setAction} />
       </header>
     </div>
   );
