@@ -8,19 +8,16 @@ import "./Settings.css";
 import clsx from "clsx";
 
 interface Props {
+  action: Action;
   config: IConfig;
   setConfig: Dispatch<SetStateAction<IConfig>>;
   setAction: Dispatch<SetStateAction<Action>>;
 }
 
-function Settings({ config, setConfig, setAction }: Props) {
+function Settings({ action, config, setConfig, setAction }: Props) {
   let [toggle, setToggle] = useState<boolean>(false);
 
-  const onActionChange = (action: any) => {
-    // action is a event something
-    //e.target.value
-    console.log(action);
-    debugger;
+  const onActionChange = (action: Action) => {
     setAction(action);
   };
 
@@ -47,10 +44,11 @@ function Settings({ config, setConfig, setAction }: Props) {
         <div>
           <div>
             <label htmlFor="action">Select Action</label>
-            <select id="action" onChange={(e) => onActionChange(e)}>
-              <option value="x">כפל</option>
+            <select id="action" value={action} onChange={(e) => onActionChange(e.target.value as Action)}>
               <option value="+">חיבור</option>
               <option value="-">חיסור</option>
+              <option value="x">כפל</option>
+              <option value=":" hidden>חילוק</option>
             </select>
           </div>
 

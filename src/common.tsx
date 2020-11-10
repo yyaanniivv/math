@@ -12,5 +12,5 @@ export interface IConfig {
   bRange: number;
   bOffset: number;
 }
-export type Action =  "x" | ":" | "+" | "-";
+export type Action =  "*" | ":" | "+" | "-";
 export type NumpadChar = "✅" | "⌫" | number;

@@ -33,7 +33,7 @@ function HistoricProblems(props: Props) {
       </div>
       <Collapse in={toggle}>
         {problems.map((problem) => (
-          <Problem key={problemKey(problem)} {...problem} previous={true} />
+          <Problem key={problemKey(problem)} {...problem} previous />
         ))}
       </Collapse>
     </div>

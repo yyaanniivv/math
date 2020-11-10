@@ -11,22 +11,23 @@ import { Problem } from "./Problem";
 function App() {
   let [a, setA] = useState<number>(0);
   let [b, setB] = useState<number>(0);
-  let [action, setAction] = useState<Action>("x");
+  let [action, setAction] = useState<Action>("+");
   let [answerHint, setAnswerHint] = useState<string>("");
   let [config, setConfig] = useState<IConfig>({
     aRange: 50,
     aOffset: 1,
-    bRange: 5,
+    bRange: 9,
     bOffset: 2,
   });
 
   let [previousProblems, setPreviousProblems] = useState<Array<IProblem>>([]);
 
+  // Clean impl without eval
   // const action = {
   //   sum: {
   //     display: "+",
   //     action: (a: number, b: number) => a + b,
-  //     config: { aOffset: 250, aRange: 250, bOffset: 10, bRange: 30 },
+  //     config: { aOffset: 250, aRange: 10, bOffset: 1, bRange: 30 },
   //   },
   //   multiply: {
   //     display: "x",
@@ -63,11 +64,12 @@ function App() {
   const checkProblem = () => {
     const resultField = document.getElementById("result") as HTMLInputElement;
     const res = parseInt(resultField.value);
-    if (res === a * b) {
+    const expectedResult = eval(`${a} ${action} ${b}`) // Eval is evil. 
+    if (res === expectedResult) {
       setAnswerHint("כל הכבוד");
       saveProblem(a, b, action);
       generateProblem();
-    } else if (res <= a * b) {
+    } else if (res <= expectedResult) {
       setAnswerHint("נמוך מידי");
     } else {
       setAnswerHint("גבוה מידי");
@@ -98,7 +100,7 @@ function App() {
         />
         <HistoricProblems problems={previousProblems} />
         <img src={logo} className="App-logo" alt="logo" />
-        <Settings config={config} setConfig={setConfig} setAction={setAction} />
+        <Settings action={action} config={config} setConfig={setConfig} setAction={setAction} />
       </header>
     </div>
   );
