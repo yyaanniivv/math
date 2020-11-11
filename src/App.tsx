@@ -88,10 +88,10 @@ function App() {
         <p>חשבון פשוט</p>
       </header>
 
-      <Problem a={a} b={b} action={action} />
-
-      {answerHint}
       <div className="MathProblem">
+        <Problem a={a} b={b} action={action} />
+        {answerHint}
+        
         <input placeholder="?" type="number" id="result" />
       </div>
       <Numpad

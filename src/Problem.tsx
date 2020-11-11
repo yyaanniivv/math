@@ -8,6 +8,8 @@ type IPrintProblem = IProblem & {
 };
 
 export function Problem({ a, b, action, previous }: IPrintProblem) {
-  const classes = previous ? "previous" : "";
-  return <div className={classes}>{` ${a} ${action} ${b} = ? `}</div>;
+  const classes = previous ? "previous" : "problem";
+  return <div className={classes}>
+    {` ${a} ${action} ${b} = ? `}
+  </div>;
 }
