@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { IconButton } from "@material-ui/core";
+import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+
 import logo from "./logo.svg";
 import Numpad from "./Numpad";
 import Settings from "./Settings";
 import HistoricProblems from "./HistoricProblems";
+import { Problem } from "./Problem";
 import { Action, IConfig, IProblem, NumpadChar } from "./common";
 
 import "./App.css";
-import { Problem } from "./Problem";
 
 function App() {
   let [a, setA] = useState<number>(0);
@@ -85,13 +88,21 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <IconButton
+          // onClick={() => setToggle(!toggle)}
+          // className={clsx("expand", {
+          //   expandOpen: toggle,
+          // })}
+        >
+          <ExpandMoreIcon color="primary" />
+        </IconButton>
         <p>חשבון פשוט</p>
       </header>
 
       <div className="MathProblem">
         <Problem a={a} b={b} action={action} />
         {answerHint}
-        
+
         <input placeholder="?" type="number" id="result" />
       </div>
       <Numpad
