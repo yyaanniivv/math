@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background-color: #2d3035;
+
+  font-size: 16px;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -7,32 +14,23 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: white;
+  min-height: 3rem;
+  padding: 0 5px;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
-}
 .MathProblem {
-  display: flex;
-  flex-direction: row;
   margin: 1rem 0rem;
 }
-
+/* 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -40,4 +38,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

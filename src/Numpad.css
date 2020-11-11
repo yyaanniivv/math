@@ -1,4 +1,5 @@
 .numpad {
+  align-self: center;
   width: 12rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

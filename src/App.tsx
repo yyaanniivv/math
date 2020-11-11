@@ -86,22 +86,22 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>חשבון פשוט</p>
-
-        <Problem a={a} b={b} action={action} />
-
-        {answerHint}
-        <div className="MathProblem">
-          <input placeholder="?" type="number" id="result" />
-        </div>
-        <Numpad
-          onClick={(char: NumpadChar) => {
-            numpadClick(char);
-          }}
-        />
-        <HistoricProblems problems={previousProblems} />
-        <img src={logo} className="App-logo" alt="logo" />
-        <Settings action={action} config={config} setConfig={setConfig} setAction={setAction} />
       </header>
+
+      <Problem a={a} b={b} action={action} />
+
+      {answerHint}
+      <div className="MathProblem">
+        <input placeholder="?" type="number" id="result" />
+      </div>
+      <Numpad
+        onClick={(char: NumpadChar) => {
+          numpadClick(char);
+        }}
+      />
+      <HistoricProblems problems={previousProblems} />
+      <img src={logo} className="App-logo" alt="logo" />
+      <Settings action={action} config={config} setConfig={setConfig} setAction={setAction} />
     </div>
   );
 }
