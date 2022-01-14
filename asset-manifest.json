@@ -1,23 +1,14 @@
 {
   "files": {
-    "main.css": "/math/static/css/main.9f2e941e.chunk.css",
-    "main.js": "/math/static/js/main.e9b979f6.chunk.js",
-    "main.js.map": "/math/static/js/main.e9b979f6.chunk.js.map",
-    "runtime-main.js": "/math/static/js/runtime-main.dc92f23e.js",
-    "runtime-main.js.map": "/math/static/js/runtime-main.dc92f23e.js.map",
-    "static/js/2.6ddc30bc.chunk.js": "/math/static/js/2.6ddc30bc.chunk.js",
-    "static/js/2.6ddc30bc.chunk.js.map": "/math/static/js/2.6ddc30bc.chunk.js.map",
+    "main.css": "/math/static/css/main.211abdcd.css",
+    "main.js": "/math/static/js/main.0709fe79.js",
+    "static/media/logo.svg": "/math/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
     "index.html": "/math/index.html",
-    "precache-manifest.df6c3b2cc0cac5e027d5b462571ba114.js": "/math/precache-manifest.df6c3b2cc0cac5e027d5b462571ba114.js",
-    "service-worker.js": "/math/service-worker.js",
-    "static/css/main.9f2e941e.chunk.css.map": "/math/static/css/main.9f2e941e.chunk.css.map",
-    "static/js/2.6ddc30bc.chunk.js.LICENSE.txt": "/math/static/js/2.6ddc30bc.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/math/static/media/logo.5d5d9eef.svg"
+    "main.211abdcd.css.map": "/math/static/css/main.211abdcd.css.map",
+    "main.0709fe79.js.map": "/math/static/js/main.0709fe79.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.dc92f23e.js",
-    "static/js/2.6ddc30bc.chunk.js",
-    "static/css/main.9f2e941e.chunk.css",
-    "static/js/main.e9b979f6.chunk.js"
+    "static/css/main.211abdcd.css",
+    "static/js/main.0709fe79.js"
   ]
 }
