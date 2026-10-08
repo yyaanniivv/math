@@ -21,22 +21,23 @@ function Settings({ action, config, setConfig, setAction }: Props) {
     setAction(action);
   };
 
-  const onNumberChange = (name: string) => (_event: any, values: Array<number> | number) => {
-    const offset = (values as Array<number>)[0];
-    let range = (values as Array<number>)[1];
-    range = range - offset + 1;
+  const onNumberChange =
+    (name: string) => (_event: React.ChangeEvent<unknown>, values: Array<number> | number) => {
+      const offset = (values as Array<number>)[0];
+      let range = (values as Array<number>)[1];
+      range = range - offset + 1;
 
-    switch (name) {
-      case 'aValues':
-        setConfig({ ...config, aOffset: offset, aRange: range });
-        break;
-      case 'bValues':
-        setConfig({ ...config, bOffset: offset, bRange: range });
-        break;
-      default:
-        console.log('error in switch case');
-    }
-  };
+      switch (name) {
+        case 'aValues':
+          setConfig({ ...config, aOffset: offset, aRange: range });
+          break;
+        case 'bValues':
+          setConfig({ ...config, bOffset: offset, bRange: range });
+          break;
+        default:
+          console.log('error in switch case');
+      }
+    };
 
   return (
     <div className="settings">
