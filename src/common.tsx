@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface IProblem {
   a: number;
   b: number;
@@ -12,5 +10,5 @@ export interface IConfig {
   bRange: number;
   bOffset: number;
 }
-export type Action =  "*" | ":" | "+" | "-";
-export type NumpadChar = "✅" | "⌫" | number;
+export type Action = '*' | ':' | '+' | '-';
+export type NumpadChar = '✅' | '⌫' | number;

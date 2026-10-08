@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import clsx from "clsx";
-import { Collapse, IconButton } from "@material-ui/core";
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
-import { IProblem } from "./common";
-import { Problem } from "./Problem";
-import "./HistoricProblems.css";
+import React, { useState } from 'react';
+import clsx from 'clsx';
+import { Collapse, IconButton } from '@material-ui/core';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { IProblem } from './common';
+import { Problem } from './Problem';
+import './HistoricProblems.css';
 
 interface Props {
   problems: Array<IProblem>;
@@ -15,7 +15,7 @@ function problemKey({ a, b, action }: IProblem) {
 }
 
 function HistoricProblems(props: Props) {
-  let [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);
   const problems = props.problems;
 
   return (
@@ -24,7 +24,7 @@ function HistoricProblems(props: Props) {
         <p>{problems.length} :תרגילים קודמים</p>
         <IconButton
           onClick={() => setToggle(!toggle)}
-          className={clsx("expand", {
+          className={clsx('expand', {
             expandOpen: toggle,
           })}
         >
