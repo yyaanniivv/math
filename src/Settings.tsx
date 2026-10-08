@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import { Collapse, IconButton } from '@material-ui/core';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
-import Slider from '@material-ui/core/Slider';
+import { Collapse, IconButton } from '@mui/material';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
+import Slider from '@mui/material/Slider';
 import { Action, IConfig } from './common';
 
 import './Settings.css';
@@ -22,7 +22,7 @@ function Settings({ action, config, setConfig, setAction }: Props) {
   };
 
   const onNumberChange =
-    (name: string) => (_event: React.ChangeEvent<unknown>, values: Array<number> | number) => {
+    (name: string) => (_event: Event, values: Array<number> | number, _activeThumb: number) => {
       const offset = (values as Array<number>)[0];
       let range = (values as Array<number>)[1];
       range = range - offset + 1;
@@ -90,6 +90,7 @@ function Settings({ action, config, setConfig, setAction }: Props) {
           className={clsx('expand', {
             expandOpen: toggle,
           })}
+          size="large"
         >
           <ExpandMoreIcon color="primary" />
         </IconButton>
