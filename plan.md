@@ -61,10 +61,11 @@ A simple math practice game for kids built with React + TypeScript + Material-UI
 - Target: `^5.0.0`
 - Enable `strict: true` in `tsconfig.json`
 
-### 11. Migrate Material-UI v4 → MUI v5+
+### 11. Migrate Material-UI v4 → MUI v5+ ✅
 - Current: `@material-ui/core@^4.11.0` (deprecated)
 - Target: `@mui/material@^5.x` or `^6.x`
 - Use `@mui/codemod` for automated migration
+- **Done in PR #7**
 
 ---
 
@@ -88,7 +89,7 @@ A simple math practice game for kids built with React + TypeScript + Material-UI
 |-------|-------|-------------|
 | **Quick Wins PR** | 4, 5, 6, 7 | 30-45 min |
 | **Vite Migration PR** | 8 | 2-3 hrs |
-| **React/TS/MUI Upgrade PR** | 9, 10, 11 | 2-4 hrs |
+| **React/TS/MUI Upgrade PR** | 9, 10, 11 | 2-4 hrs | **DONE (PR #5, #7)** |
 | **Polish PR** | Enhancements | 3-6 hrs |
 
 ---
@@ -101,4 +102,4 @@ A simple math practice game for kids built with React + TypeScript + Material-UI
 
 ---
 
-*Updated 2026-10-08 — Reflects PRs #1, #2, #3 merged*
+*Updated 2026-10-08 — Reflects PRs #1, #2, #3, #5, #6, #7 merged*
