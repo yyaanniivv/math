@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { IconButton } from '@material-ui/core';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { IconButton } from '@mui/material';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 
 import logo from './logo.svg';
 import Numpad from './Numpad';
@@ -95,10 +95,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <IconButton
-        // onClick={() => setToggle(!toggle)}
-        // className={clsx("expand", {
-        //   expandOpen: toggle,
-        // })}
+          // onClick={() => setToggle(!toggle)}
+          // className={clsx("expand", {
+          //   expandOpen: toggle,
+          // })}
+          size="large"
         >
           <ExpandMoreIcon color="primary" />
         </IconButton>

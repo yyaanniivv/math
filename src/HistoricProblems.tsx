@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { Collapse, IconButton } from '@material-ui/core';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { Collapse, IconButton } from '@mui/material';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { IProblem } from './common';
 import { Problem } from './Problem';
 import './HistoricProblems.css';
@@ -27,6 +27,7 @@ function HistoricProblems(props: Props) {
           className={clsx('expand', {
             expandOpen: toggle,
           })}
+          size="large"
         >
           <ExpandMoreIcon color="primary" />
         </IconButton>
