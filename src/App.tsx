@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IconButton } from "@material-ui/core";
 import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
 
@@ -8,22 +8,25 @@ import Settings from "./Settings";
 import HistoricProblems from "./HistoricProblems";
 import { Problem } from "./Problem";
 import { Action, IConfig, IProblem, NumpadChar } from "./common";
+import { calculate } from "./utils/calculate";
 
 import "./App.css";
 
 function App() {
-  let [a, setA] = useState<number>(0);
-  let [b, setB] = useState<number>(0);
-  let [action, setAction] = useState<Action>("+");
-  let [answerHint, setAnswerHint] = useState<string>("");
-  let [config, setConfig] = useState<IConfig>({
+  const [a, setA] = useState<number>(0);
+  const [b, setB] = useState<number>(0);
+  const [action, setAction] = useState<Action>('+');
+  const [answerHint, setAnswerHint] = useState<string>('');
+  const [config, setConfig] = useState<IConfig>({
     aRange: 50,
     aOffset: 1,
     bRange: 9,
     bOffset: 2,
   });
 
-  let [previousProblems, setPreviousProblems] = useState<Array<IProblem>>([]);
+  const [previousProblems, setPreviousProblems] = useState<Array<IProblem>>([]);
+
+  const resultRef = useRef<HTMLInputElement>(null);
 
   // Clean impl without eval
   // const action = {
@@ -43,15 +46,17 @@ function App() {
     setA(Math.floor(Math.random() * config["aRange"] + config["aOffset"]));
     setB(Math.floor(Math.random() * config["bRange"] + config["bOffset"]));
 
-    const resultField = document.getElementById("result") as HTMLInputElement;
-    resultField.value = "?";
+    if (resultRef.current) {
+      resultRef.current.value = "?";
+    }
   };
 
   // For the visual numpad
   const numpadClick = (char: NumpadChar) => {
-    const resultField = document.getElementById("result") as HTMLInputElement;
+    const resultField = resultRef.current;
+    if (!resultField) return;
     if (char === "⌫") {
-      resultField.value = resultField.value.substr(0, resultField.value.length - 1);
+      resultField.value = resultField.value.slice(0, -1);
     } else if (char === "✅") {
       checkProblem();
     } else {
@@ -65,9 +70,10 @@ function App() {
   };
 
   const checkProblem = () => {
-    const resultField = document.getElementById("result") as HTMLInputElement;
+    const resultField = resultRef.current;
+    if (!resultField) return;
     const res = parseInt(resultField.value);
-    const expectedResult = eval(`${a} ${action} ${b}`) // Eval is evil. 
+    const expectedResult = calculate(a, b, action);
     if (res === expectedResult) {
       setAnswerHint("כל הכבוד");
       saveProblem(a, b, action);
@@ -103,7 +109,7 @@ function App() {
         <Problem a={a} b={b} action={action} />
         {answerHint}
 
-        <input placeholder="?" type="number" id="result" />
+        <input placeholder="?" type="number" ref={resultRef} />
       </div>
       <Numpad
         onClick={(char: NumpadChar) => {
