@@ -1,5 +1,15 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
+import { vi } from 'vitest';
 import '@testing-library/jest-dom/extend-expect';
+
+// Suppress React 18 deprecation warnings in tests
+vi.spyOn(console, 'warn').mockImplementation((msg) => {
+  if (
+    msg.includes('ReactDOMTestUtils.act') ||
+    msg.includes('ReactDOM.render') ||
+    msg.includes('unmountComponentAtNode') ||
+    msg.includes('createRoot')
+  ) {
+    return;
+  }
+  console.warn(msg);
+});
