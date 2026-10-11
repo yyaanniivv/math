@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, ComponentType } from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import '@testing-library/jest-dom';
@@ -11,10 +11,10 @@ interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
 
 function customRender(ui: React.ReactElement, options: CustomRenderOptions = {}): RenderResult {
   const { theme: customTheme, ...renderOptions } = options;
-  const Wrapper = ({ children }: { children: ReactNode }) => (
+  const Wrapper: ComponentType<{ children: ReactNode }> = ({ children }) => (
     <ThemeProvider theme={customTheme || theme}>{children}</ThemeProvider>
   );
-  return render(ui, { wrapper: Wrapper as any, ...renderOptions });
+  return render(ui, { wrapper: Wrapper as ComponentType, ...renderOptions });
 }
 
 export * from '@testing-library/react';
