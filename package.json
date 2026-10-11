@@ -26,9 +26,10 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write src",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d dist"
   },
+  "packageManager": "yarn@1.22.22",
   "eslintConfig": {
     "extends": "react-app"
   },
